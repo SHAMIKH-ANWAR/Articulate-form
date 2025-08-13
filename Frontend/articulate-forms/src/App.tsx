@@ -9,6 +9,7 @@ import FormFill from "./pages/FormFill";
 import FormTest from "./pages/FormTest";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import { ServerWarmupNotice } from "@/components/shared/ServerWarmupNotice";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ServerWarmupNotice />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

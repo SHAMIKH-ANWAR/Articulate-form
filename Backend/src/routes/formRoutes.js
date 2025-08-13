@@ -6,6 +6,7 @@ const {
 	getFormForTest,
 	submitTest,
 	getSubmissions,
+	health,
 } = require('../controllers/formController');
 const asyncHandler = require('../middlewares/asyncHandler');
 
@@ -17,5 +18,6 @@ router.get('/api/submissions', asyncHandler(getSubmissions));
 router.get('/api/test/:id', asyncHandler(getFormForTest));
 router.get('/api/form/:id', asyncHandler(getFormById));
 router.post('/api/submit-test/:id', asyncHandler(submitTest));
+router.get('/api/health', asyncHandler(health));
 
 module.exports = router;

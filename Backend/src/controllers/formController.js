@@ -69,11 +69,16 @@ const getSubmissions = async (req, res) => {
   res.status(200).json(submissions);
 };
 
+const health = async (req, res) => {
+  res.status(200).json({ status: 'ok' });
+};
+
 module.exports = {
   createForm,
   getForms,
   getFormById,
   getFormForTest,
   submitTest,
-  getSubmissions
+  getSubmissions,
+  health,
 };
