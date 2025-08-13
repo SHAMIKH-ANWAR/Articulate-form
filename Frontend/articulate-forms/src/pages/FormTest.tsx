@@ -37,7 +37,7 @@ const FormTest = () => {
             description: "Test has been terminated due to multiple tab switches.",
             variant: "destructive",
           });
-          // Auto submit the test
+          
           handleSubmit();
         } else {
           toast({
@@ -59,14 +59,14 @@ const FormTest = () => {
         
         if (response.ok) {
           setForm(data);
-          // Initialize answers object with empty answers for each question
+          
           const initialAnswers = data.questions.reduce((acc: Record<string, any>, q: any) => {
             acc[q.id] = null;
             return acc;
           }, {});
           setAnswers(initialAnswers);
           
-          // Show tab switch warning toast when test starts
+         
           toast({
             title: "Important Notice",
             description: "You cannot switch tabs during the test. The test will be terminated after two tab switches.",
@@ -115,7 +115,7 @@ const FormTest = () => {
         return;
       }
 
-      // Check if all questions are answered
+   
       const unansweredQuestions = Object.values(answers).filter(a => a === null).length;
       if (unansweredQuestions > 0) {
         toast({
@@ -142,7 +142,7 @@ const FormTest = () => {
       if (response.ok) {
         setSubmitted(true);
         setShowSubmissionSuccess(true);
-        // Hide success message after 2 seconds and redirect
+      
         setTimeout(() => {
           setShowSubmissionSuccess(false);
           navigate('/');
@@ -230,12 +230,11 @@ const FormTest = () => {
         className="container mx-auto px-4 sm:px-6 py-8"
       >
         <Card className="bg-card border-card-border p-4 sm:p-6 relative overflow-hidden">
-          {/* Progress Bar */}
+     
           <div className="absolute top-0 left-0 right-0">
             <Progress value={progress} className="rounded-none h-1" />
           </div>
 
-          {/* Header with Animation */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -272,7 +271,6 @@ const FormTest = () => {
             </motion.div>
           )}
 
-          {/* Questions List */}
           <AnimatePresence mode="wait">
             <motion.div className="space-y-12">
               {form.questions.map((question, index) => (
@@ -316,7 +314,7 @@ const FormTest = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Submit Button */}
+       
           {!submitted && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -347,7 +345,7 @@ const FormTest = () => {
             </motion.div>
           )}
 
-          {/* Success Animation */}
+     
           <AnimatePresence>
             {showSubmissionSuccess && (
               <motion.div
