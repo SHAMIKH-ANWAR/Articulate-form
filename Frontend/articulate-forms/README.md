@@ -80,6 +80,34 @@ npm run dev
 - `src/utils/upload.js`: Cloudinary upload endpoint
 - `src/middlewares/asyncHandler.js`: async error wrapper
 
+## Deploy Backend to Vercel (Serverless)
+
+1) Move to backend folder and add env vars in Vercel dashboard:
+
+- `MONGODB_URI`
+- `CLOUDINARY_CLOUD_NAME`
+- `CLOUDINARY_API_KEY`
+- `CLOUDINARY_API_SECRET`
+
+2) Files added for Vercel:
+
+- `Backend/vercel.json` — routes and build config
+- `Backend/api/index.js` — serverless entry wrapping Express app
+- Optimized `src/db/dbConnect.js` with connection caching for serverless
+
+3) Deploy steps:
+
+```
+cd Backend
+vercel --prod
+```
+
+4) Update Frontend `.env` with the deployed API base:
+
+```
+VITE_API_URL=https://<your-vercel-backend>.vercel.app
+```
+
 ## API Endpoints
 
 - `POST /api/create-form` — create form
