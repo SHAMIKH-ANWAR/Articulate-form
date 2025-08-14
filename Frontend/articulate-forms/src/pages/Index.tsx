@@ -41,6 +41,15 @@ const Index = () => {
                 Admin Dashboard
               </Button>
             </Link>
+            <a
+              href="https://github.com/SHAMIKH-ANWAR/Articulate-form"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button size="lg" variant="outline" className="px-8 border-white/20 text-white hover:bg-white/10">
+                GitHub Link of this Project
+              </Button>
+            </a>
           </div>
         </div>
       </div>
